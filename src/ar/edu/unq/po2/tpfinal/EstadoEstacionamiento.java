@@ -10,7 +10,7 @@ public enum EstadoEstacionamiento {
 		}
 		
 		@Override
-		public String finalizarEstacionamiento(SEM sem, Celular cel) {
+		public String finalizarEstacionamiento(SEM sem, Celular cel,AppUsuario usuario) {
 			return "No hay un estacionamiento iniciado.";
 		}
 	        
@@ -22,8 +22,8 @@ public enum EstadoEstacionamiento {
 		}
 		
 		@Override
-		public String finalizarEstacionamiento(SEM sem, Celular cel) {
-			return sem.finEstacionamiento(cel);
+		public String finalizarEstacionamiento(SEM sem, Celular cel, AppUsuario usuario) {
+			return sem.finEstacionamiento(cel,usuario);
 		}
 		
 		
@@ -32,7 +32,7 @@ public enum EstadoEstacionamiento {
 		@Override
 		public String iniciarEstacionamiento(AppUsuario appUsuario, SEM sem, Celular cel, String patente, LocalTime horaActual) {
 			String alerta = "";
-			if (sem.tieneSaldoSuficiente(cel) && sem.esHorarioValido(horaActual)) {
+			if (sem.tieneSaldoSuficiente(cel)) {
 				appUsuario.setEstadoEstacionamiento(EstadoEstacionamiento.EstaEstacionado);
 				alerta = sem.inicioEstacionamiento(cel, patente, horaActual);
 			} else {
@@ -42,13 +42,13 @@ public enum EstadoEstacionamiento {
 		}
 
 		@Override
-		public String finalizarEstacionamiento(SEM sem, Celular cel) {
-			return sem.finEstacionamiento(cel);
+		public String finalizarEstacionamiento(SEM sem, Celular cel,AppUsuario usuario) {
+			return sem.finEstacionamiento(cel,usuario);
 		}
 
 	};
 	
 	public abstract String iniciarEstacionamiento(AppUsuario app, SEM sem, Celular celular, String patente, LocalTime horaActual);
 
-    protected abstract String finalizarEstacionamiento(SEM sem, Celular celular);
+    protected abstract String finalizarEstacionamiento(SEM sem, Celular celular,AppUsuario usuario);
 }

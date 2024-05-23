@@ -11,15 +11,67 @@ public class SEM {
 	private List <Estacionamiento> estacionamientos;
 	private List <Entidad> entidades;
 	private List <AppUsuario> usuarios;
+	//private HashMap<Celular, String> celularesEstacionados;
+	private LocalTime horaActual;
 	
 	public String inicioEstacionamiento(Celular cel, String patente, LocalTime horaActual) {
-		return null;
+			
+		String msg = "No se puede estacionar en este horario.";
+		if (this.esHorarioValido(horaActual)){
+			LocalTime horaFin = this.calcularHoraFinEstacionamiento(cel);
+			Estacionamiento estacionamientoNuevo = new Estacionamiento(patente, horaFin, horaActual);
+			estacionamientos.add(estacionamientoNuevo);
+			msg = "Hora de Inicio del Estacionamiento:" + String.valueOf(horaActual) + "Hora maxima de Fin del Estacionamiento:" + String.valueOf(horaFin);
+		}
+		return msg;
 	}
 	
-	public String finEstacionamiento(Celular cel) {
-		return null;
+	public String finEstacionamiento(Celular cel, AppUsuario usuario) {
+		String patente = usuario.getPatente();
+		Estacionamiento estacionamiento = this.estacionamientos.stream().filter(e -> e.getPatente() == patente).findFirst().get();
+		estacionamientos.remove(estacionamiento);
+		estacionamiento.setHoraFin(horaActual);
+		this.debitarCredito(cel,this.precioXHora,estacionamiento);
+		String msg = this.enviarMensaje(estacionamiento, cel);
+		this.notificarEntidadesFinDeEstacionamiento(estacionamiento);
+		return msg;
+		
 	}
 	
+	private LocalTime calcularHoraFinEstacionamiento(Celular cel) {
+		
+		int maximoDeHorasPagables = (int) Math.round (cel.getCredito() / this.precioXHora);
+		LocalTime horaFINAL;
+		LocalTime horaFin = this.horaActual.plusHours(maximoDeHorasPagables);
+		LocalTime horaFinSEM = LocalTime.of(20, 0);
+		if (horaFin.isBefore(horaFinSEM)) {
+			horaFINAL = horaFin;
+		}else {
+			horaFINAL = horaFinSEM;
+		}
+		
+		return horaFINAL;
+		
+	}
+			
+	
+	private String enviarMensaje(Estacionamiento estacionamiento, Celular cel) {
+		
+		return  "Hora de Inicio del Estacionamiento:" + String.valueOf(estacionamiento.getHoraInicio()) + ". " + 
+				"Hora Fin del Estacionamiento:" + String.valueOf(estacionamiento.getHoraFin()) +		  ". " + 
+				"Duracion del Estacionamiento:" + String.valueOf(estacionamiento.duracion())   + 		  ". " + 
+				"El costo fue de:" + String.valueOf(estacionamiento.getCostoEstacionamiento(this.precioXHora));
+	}
+
+	private void notificarEntidadesFinDeEstacionamiento(Estacionamiento estacionamiento) {
+		this.entidades.forEach(e -> e.notificarFinEstacionamiento(estacionamiento));
+	}
+
+	private void debitarCredito(Celular cel, double precioXHora2, Estacionamiento estacionamiento) {
+		cel.debitarCredito(estacionamiento.getCostoEstacionamiento(precioXHora2));
+		
+	}
+
 	public void finalizarEstacionamientosPermitidos(){
 		
 	}

@@ -20,7 +20,7 @@ public class AppUsuario {
 	}
 	
 	public void finEstacionamiento() {
-		this.cel.alerta(this.estado.finalizarEstacionamiento(this.sem,this.cel));
+		this.cel.alerta(this.estado.finalizarEstacionamiento(this.sem,this.cel,this));
 	}
 
 	public void alertaInicioEstacionamiento() {
@@ -33,5 +33,9 @@ public class AppUsuario {
 
 	protected void setEstadoEstacionamiento(EstadoEstacionamiento estado) {
 		this.estado = estado; 
+	}
+	
+	public String getPatente() {
+		return this.patente;
 	}
 }

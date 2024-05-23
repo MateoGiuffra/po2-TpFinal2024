@@ -16,4 +16,8 @@ public class Celular {
 		alertas.push(alerta);
 	}
 
+	public void debitarCredito(double costoEstacionamiento) {
+		this.credito =- costoEstacionamiento;
+	}
+
 }
