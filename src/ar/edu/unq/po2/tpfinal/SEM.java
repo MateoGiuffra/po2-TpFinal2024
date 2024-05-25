@@ -19,7 +19,7 @@ public class SEM {
 		String msg = "No se puede estacionar en este horario.";
 		if (this.esHorarioValido(horaActual)){
 			LocalTime horaFin = this.calcularHoraFinEstacionamiento(cel);
-			Estacionamiento estacionamientoNuevo = new Estacionamiento(patente, horaFin, horaActual);
+			Estacionamiento estacionamientoNuevo = new EstacionamientoPorApp(patente,horaFin,horaActual,cel,precioXHora);
 			estacionamientos.add(estacionamientoNuevo);
 			msg = "Hora de Inicio del Estacionamiento:" + String.valueOf(horaActual) + "Hora maxima de Fin del Estacionamiento:" + String.valueOf(horaFin);
 		}

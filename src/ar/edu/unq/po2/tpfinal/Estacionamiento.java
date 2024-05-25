@@ -2,7 +2,7 @@ package ar.edu.unq.po2.tpfinal;
 
 import java.time.LocalTime;
 
-public class Estacionamiento {
+public abstract class Estacionamiento {
 		
 	private String patente;
 	private LocalTime horaFin;
@@ -28,7 +28,7 @@ public class Estacionamiento {
 
 	public void setHoraFin(LocalTime horaActual) {
 		// TODO Auto-generated method stub
-		
+		this.horaFin = horaFin;
 	}
 
 	public LocalTime getHoraInicio() {
@@ -44,5 +44,10 @@ public class Estacionamiento {
 		// TODO Auto-generated method stub
 		return this.duracion() * precioPorHora;
 	}
+	
+	/**
+	 * Hook method
+	 */
+//	public abstract void terminarEstacionamiento() ;
 	
 }

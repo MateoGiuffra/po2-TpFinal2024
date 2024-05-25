@@ -20,4 +20,11 @@ public class Celular {
 		this.credito =- costoEstacionamiento;
 	}
 
+	public void cargarCredito(double monto) {
+		   this.credito += monto;
+		
+	}
+	
+	
+
 }
