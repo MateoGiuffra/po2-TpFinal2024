@@ -11,17 +11,25 @@ public class PuntoDeVenta {
 	
 	
 	public void iniciarEstacionamiento(String patente, int cantidadHoras) {
-		Compra compra =  new CompraPuntual(0, LocalDate.now(), LocalTime.now(),cantidadHoras );
-		LocalTime horas = LocalTime.now().plus(Duration.ofHours(cantidadHoras)); 
-		EstacionamientoCompraPuntual estacionamientocp = new EstacionamientoCompraPuntual(patente, LocalTime.now(), horas,cantidadHoras); 
-		estacionamientocp.setHoraFin(horas);
+		Compra compra =  new CompraPuntual(LocalDate.now(), LocalTime.now(), cantidadHoras);
+		LocalTime horaFin = this.getHoraFin(cantidadHoras); 
+		EstacionamientoCompraPuntual estacionamientocp = new EstacionamientoCompraPuntual(patente, LocalTime.now(), horaFin, cantidadHoras); 
+		estacionamientocp.setHoraFin(horaFin);
+		compra.sumarCompra();
 		sem.addEstacionamiento(estacionamientocp);
 		sem.addCompra(compra);
 	}
 	
+	private LocalTime getHoraFin(int cantidadHoras) {
+		LocalTime horaFin = LocalTime.now().plus(Duration.ofHours(cantidadHoras));
+		LocalTime maxHoraFin = LocalTime.of(20, 0);	
+		return horaFin.isBefore(maxHoraFin) ? horaFin : maxHoraFin;
+	}
+
 	public void cargarCelular(Celular celular, double monto) {
-		RecargaDeCelular recarga = new RecargaDeCelular(0, LocalDate.now(), LocalTime.now(), celular, monto);
+		RecargaDeCelular recarga = new RecargaDeCelular(LocalDate.now(), LocalTime.now(), celular, monto);
 		celular.cargarCredito(monto);
+		recarga.sumarCompra();
 		sem.addCompra(recarga);
 	}
 	

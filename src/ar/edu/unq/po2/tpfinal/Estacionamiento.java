@@ -26,7 +26,7 @@ public abstract class Estacionamiento {
 		return horaFin.getHour() - horaInicio.getHour();
 	}
 
-	public void setHoraFin(LocalTime horaActual) {
+	public void setHoraFin(LocalTime horaFin) {
 		// TODO Auto-generated method stub
 		this.horaFin = horaFin;
 	}
@@ -44,10 +44,10 @@ public abstract class Estacionamiento {
 		// TODO Auto-generated method stub
 		return this.duracion() * precioPorHora;
 	}
-	
-	/**
-	 * Hook method
-	 */
-//	public abstract void terminarEstacionamiento() ;
+
+	public void terminarEstacionamiento() {
+		
+	}
+
 	
 }

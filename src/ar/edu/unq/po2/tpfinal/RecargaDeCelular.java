@@ -7,8 +7,8 @@ public class RecargaDeCelular extends Compra{
 	private Celular celular;
 	private double monto;
 	
-	public RecargaDeCelular(int nroDeCompra, LocalDate fecha, LocalTime hora, Celular celular, double monto) {
-		super(nroDeCompra, fecha, hora);
+	public RecargaDeCelular(LocalDate fecha, LocalTime hora, Celular celular, double monto) {
+		super(fecha, hora);
 		this.celular = celular;
 		this.monto = monto;
 		// TODO Auto-generated constructor stub

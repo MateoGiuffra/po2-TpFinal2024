@@ -23,13 +23,13 @@ public class AppUsuario {
 		this.cel.alerta(this.estado.finalizarEstacionamiento(this.sem,this.cel,this));
 	}
 
-	public void alertaInicioEstacionamiento() {
-
-	}
-	
-	public void alertaFinEstacionamiento() {
-		
-	}
+//	public void alertaInicioEstacionamiento() {
+//
+//	}
+//	
+//	public void alertaFinEstacionamiento() {
+//		
+//	}
 
 	protected void setEstadoEstacionamiento(EstadoEstacionamiento estado) {
 		this.estado = estado; 

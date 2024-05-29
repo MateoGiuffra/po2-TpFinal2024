@@ -13,10 +13,11 @@ public class EstacionamientoPorApp extends Estacionamiento{
 		// TODO Auto-generated constructor stub
 	}
 
-//	@Override
-//	public void terminarEstacionamiento() {
-//		this.celular.debitarCredito(this.getCostoEstacionamiento(precioxHora));
-//	}
+	@Override
+	public void terminarEstacionamiento() {
+		this.setHoraFin(LocalTime.of(20, 0));
+		this.celular.debitarCredito(this.getCostoEstacionamiento(precioxHora));
+	}
 
 	
 	

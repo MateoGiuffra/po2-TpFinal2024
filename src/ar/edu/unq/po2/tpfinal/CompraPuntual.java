@@ -6,8 +6,8 @@ import java.time.LocalTime;
 public class CompraPuntual extends Compra{
 	private int cantidadHoras;
 	
-	public CompraPuntual(int nroDeCompra, LocalDate fecha, LocalTime hora, int cantidadHoras) {
-		super(nroDeCompra, fecha, hora);
+	public CompraPuntual(LocalDate fecha, LocalTime hora, int cantidadHoras) {
+		super(fecha, hora);
 		this.cantidadHoras = cantidadHoras;
 		// TODO Auto-generated constructor stub
 	}
@@ -16,5 +16,4 @@ public class CompraPuntual extends Compra{
 		this.cantidadHoras = cantidadHoras;
 	}
 
-	
 }

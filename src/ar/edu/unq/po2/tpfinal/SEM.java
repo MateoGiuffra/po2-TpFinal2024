@@ -64,7 +64,7 @@ public class SEM {
 	}
 
 	private void notificarEntidadesFinDeEstacionamiento(Estacionamiento estacionamiento) {
-		this.entidades.forEach(e -> e.notificarFinEstacionamiento(estacionamiento));
+		this.entidades.forEach(entidad -> entidad.notificarFinEstacionamiento(estacionamiento));
 	}
 
 	private void debitarCredito(Celular cel, double precioXHora2, Estacionamiento estacionamiento) {
@@ -72,8 +72,14 @@ public class SEM {
 		
 	}
 
-	public void finalizarEstacionamientosPermitidos(){
-		
+	public void finalizarTodosLosEstacionamientos(){
+		if (this.horaActual.isAfter(LocalTime.of(20, 00))) {
+			for (Estacionamiento e : estacionamientos) {
+				e.terminarEstacionamiento();
+				this.notificarEntidadesFinDeEstacionamiento(e);
+			}
+			estacionamientos.removeAll(estacionamientos);
+		}
 	}
 	
 	public void notificarFinalizacion(){
@@ -109,7 +115,11 @@ public class SEM {
 	}
 
 	public boolean esHorarioValido(LocalTime horaActual) {
-		return false;
+		return horaActual.isAfter(LocalTime.of(7,0)) && horaActual.isBefore(LocalTime.of(20, 0));
+	}
+
+	public boolean estaVigente(String patente) {
+		return this.estacionamientos.stream().anyMatch(e -> e.getPatente().equals(patente));
 	}
 	
 }
