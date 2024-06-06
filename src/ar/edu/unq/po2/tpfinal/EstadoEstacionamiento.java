@@ -13,6 +13,18 @@ public enum EstadoEstacionamiento {
 		public String finalizarEstacionamiento(SEM sem, Celular cel,AppUsuario usuario) {
 			return "No hay un estacionamiento iniciado.";
 		}
+
+		@Override
+		public void ahoraEstasCaminando(AppUsuario app, Celular celular) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void ahoraEstasManejando(AppUsuario app, Celular celular) {
+			// TODO Auto-generated method stub
+			
+		}
 	        
 	}, EstaEstacionado {
 		
@@ -25,6 +37,18 @@ public enum EstadoEstacionamiento {
 		public String finalizarEstacionamiento(SEM sem, Celular cel, AppUsuario usuario) {
 			return sem.finEstacionamiento(cel,usuario);
 		}
+
+		@Override
+		public void ahoraEstasCaminando(AppUsuario app, Celular celular) {
+			// no hace nada
+			
+		}
+
+		@Override
+		public void ahoraEstasManejando(AppUsuario app, Celular celular) {
+			celular.alerta(app.getModo().alertaFinEstacionamiento(app));
+		}
+
 		
 		
 	}, NoEstaEstacionado {
@@ -46,9 +70,22 @@ public enum EstadoEstacionamiento {
 			return sem.finEstacionamiento(cel,usuario);
 		}
 
+		@Override
+		public void ahoraEstasCaminando(AppUsuario app, Celular celular) {
+			celular.alerta(app.getModo().alertaInicioEstacionamiento(app));
+			
+		}
+
+		@Override
+		public void ahoraEstasManejando(AppUsuario app, Celular celular) {
+			// no hace nada
+			
+		}
+
 	};
 	
 	public abstract String iniciarEstacionamiento(AppUsuario app, SEM sem, Celular celular, String patente, LocalTime horaActual);
-
     protected abstract String finalizarEstacionamiento(SEM sem, Celular celular,AppUsuario usuario);
+    public abstract void ahoraEstasCaminando(AppUsuario app, Celular celular);
+    public abstract void ahoraEstasManejando(AppUsuario app, Celular celular);
 }

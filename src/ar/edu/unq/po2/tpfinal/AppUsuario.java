@@ -7,7 +7,7 @@ public class AppUsuario {
 	private SEM sem;
 	private Celular cel;
 	private EstadoDesplazamiento desplazamiento;
-	private EstadoEstacionamiento estado;
+	private EstadoEstacionamiento estadoEstacionamiento;
 	private EstrategiaModo modo;
 	private LocalTime horaActual;
 	
@@ -16,11 +16,11 @@ public class AppUsuario {
 	}
 	
 	public void inicioEstacionamiento() {
-		this.cel.alerta(this.estado.iniciarEstacionamiento(this,this.sem,this.cel,this.patente,this.horaActual));
+		this.cel.alerta(this.estadoEstacionamiento.iniciarEstacionamiento(this,this.sem,this.cel,this.patente,this.horaActual));
 	}
 	
 	public void finEstacionamiento() {
-		this.cel.alerta(this.estado.finalizarEstacionamiento(this.sem,this.cel,this));
+		this.cel.alerta(this.estadoEstacionamiento.finalizarEstacionamiento(this.sem,this.cel,this));
 	}
 
 //	public void alertaInicioEstacionamiento() {
@@ -32,10 +32,28 @@ public class AppUsuario {
 //	}
 
 	protected void setEstadoEstacionamiento(EstadoEstacionamiento estado) {
-		this.estado = estado; 
+		this.estadoEstacionamiento = estado; 
 	}
 	
 	public String getPatente() {
 		return this.patente;
+	}
+	public void ahoraEstasCaminando() {
+		estadoEstacionamiento.ahoraEstasCaminando(this, this.cel);
+	}
+	public void ahoraEstasManejando() {
+		estadoEstacionamiento.ahoraEstasManejando(this, this.cel);
+	}
+
+	public void setEstadoMovimiento(EstadoDesplazamiento estadoMovimiento) {
+		this.desplazamiento = estadoMovimiento;
+	}
+	
+	public void setModo(EstrategiaModo modo) {
+		this.modo = modo;
+	}
+	
+	public EstrategiaModo getModo() {
+		return this.modo;
 	}
 }
