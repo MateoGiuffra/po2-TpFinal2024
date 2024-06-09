@@ -22,6 +22,17 @@ public class AppUsuario {
 	public void finEstacionamiento() {
 		this.cel.alerta(this.estadoEstacionamiento.finalizarEstacionamiento(this.sem,this.cel,this));
 	}
+	
+	
+	public AppUsuario(String patente, SEM sem, Celular cel, EstadoEstacionamiento estadoEstacionamiento,
+			EstrategiaModo modo) {
+		super();
+		this.patente = patente;
+		this.sem = sem;
+		this.cel = cel;
+		this.estadoEstacionamiento = estadoEstacionamiento;
+		this.modo = modo;
+	}
 
 //	public void alertaInicioEstacionamiento() {
 //
@@ -56,4 +67,14 @@ public class AppUsuario {
 	public EstrategiaModo getModo() {
 		return this.modo;
 	}
+	
+	public void setHoraActual(LocalTime hora) {
+		this.horaActual = hora;
+	}
+
+	public LocalTime getHoraActual() {
+		return horaActual;
+	}
+	
+	
 }
