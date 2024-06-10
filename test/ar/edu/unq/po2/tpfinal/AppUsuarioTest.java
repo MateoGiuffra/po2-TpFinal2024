@@ -15,19 +15,21 @@ public class AppUsuarioTest {
 
     @BeforeEach
     public void setUp() {
-        LocalTime horaActual= LocalTime.of(9, 0);
-        estado= spy(EstadoEstacionamiento.NoEstaEstacionado);
-        sem= mock (SEM.class);
-        app= new AppUsuario(patente, sem, cel, estado, modo);
-        cel= new Celular(200, 1133334444, app);
+        LocalTime horaActual = LocalTime.of(9, 0);
+        patente = "ABC123";
+        estado = spy(EstadoEstacionamiento.NoEstaEstacionado); 
+        sem = mock(SEM.class);
+        cel = mock(Celular.class); 
+        app = new AppUsuario(patente, sem, cel, estado, modo);
         app.setHoraActual(horaActual);
 
         when(sem.tieneSaldoSuficiente(cel)).thenReturn(true);
+        when(cel.getCredito()).thenReturn((double) 200); 
     }
 
     @Test 
     public void testConsultarSaldo() {
-        assertEquals(app.consultarSaldo(), 200);
+        assertEquals(200, app.consultarSaldo()); 
     }
 
     @Test
