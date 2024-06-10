@@ -32,15 +32,7 @@ public class AppUsuario {
 		this.cel = cel;
 		this.estadoEstacionamiento = estadoEstacionamiento;
 		this.modo = modo;
-	}
-
-//	public void alertaInicioEstacionamiento() {
-//
-//	}
-//	
-//	public void alertaFinEstacionamiento() {
-//		
-//	}
+	} 
 
 	protected void setEstadoEstacionamiento(EstadoEstacionamiento estado) {
 		this.estadoEstacionamiento = estado; 

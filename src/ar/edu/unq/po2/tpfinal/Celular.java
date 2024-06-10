@@ -31,7 +31,5 @@ public class Celular {
 		   this.credito += monto;
 		
 	}
-	
-	
 
 }
