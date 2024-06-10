@@ -1,6 +1,8 @@
-package ar.edu.unq.po2.tpfinal;
+package ar.edu.unq.po2.tpfinal.sem.estacionamiento;
 
 import java.time.LocalTime;
+
+import ar.edu.unq.po2.tpfinal.app.Celular;
 
 public class EstacionamientoPorApp extends Estacionamiento{
 	private Celular celular;
@@ -10,7 +12,6 @@ public class EstacionamientoPorApp extends Estacionamiento{
 		super(patente, horaFin, horaInicio);
 		this.celular = celular;
 		this.precioxHora = precioxHora;
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

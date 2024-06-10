@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tpfinal;
+package ar.edu.unq.po2.tpfinal.sem.estacionamiento;
 
 import java.time.LocalTime;
 

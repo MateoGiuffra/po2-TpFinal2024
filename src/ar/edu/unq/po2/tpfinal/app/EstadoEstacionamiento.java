@@ -1,5 +1,7 @@
-package ar.edu.unq.po2.tpfinal;
+package ar.edu.unq.po2.tpfinal.app;
 import java.time.LocalTime;
+
+import ar.edu.unq.po2.tpfinal.sem.SEM;
 
 public enum EstadoEstacionamiento { 
 	NoEstaEnZona{

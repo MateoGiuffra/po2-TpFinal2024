@@ -1,4 +1,6 @@
-package ar.edu.unq.po2.tpfinal;
+package ar.edu.unq.po2.tpfinal.app.estadoDesplazamiento;
+
+import ar.edu.unq.po2.tpfinal.app.AppUsuario;
 
 public class EstadoManejando extends EstadoDesplazamiento{
 

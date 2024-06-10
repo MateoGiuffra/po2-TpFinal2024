@@ -1,7 +1,9 @@
-package ar.edu.unq.po2.tpfinal;
+package ar.edu.unq.po2.tpfinal.compra;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+
+import ar.edu.unq.po2.tpfinal.app.Celular;
 
 public class RecargaDeCelular extends Compra{
 	private Celular celular;

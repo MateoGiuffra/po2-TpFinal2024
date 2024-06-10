@@ -1,6 +1,13 @@
-package ar.edu.unq.po2.tpfinal;
+package ar.edu.unq.po2.tpfinal.sem;
 import java.time.LocalTime;
 import java.util.List;
+
+import ar.edu.unq.po2.tpfinal.app.AppUsuario;
+import ar.edu.unq.po2.tpfinal.app.Celular;
+import ar.edu.unq.po2.tpfinal.compra.Compra;
+import ar.edu.unq.po2.tpfinal.inspector.Infraccion;
+import ar.edu.unq.po2.tpfinal.sem.estacionamiento.Estacionamiento;
+import ar.edu.unq.po2.tpfinal.sem.estacionamiento.EstacionamientoPorApp;
 
 public class SEM {
 	

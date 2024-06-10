@@ -1,4 +1,6 @@
-package ar.edu.unq.po2.tpfinal;
+package ar.edu.unq.po2.tpfinal.sem;
+
+import ar.edu.unq.po2.tpfinal.sem.estacionamiento.Estacionamiento;
 
 public interface Entidad {
 

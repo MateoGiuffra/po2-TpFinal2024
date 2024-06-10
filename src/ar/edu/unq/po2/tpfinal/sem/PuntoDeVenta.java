@@ -1,9 +1,15 @@
-package ar.edu.unq.po2.tpfinal;
+package ar.edu.unq.po2.tpfinal.sem;
 
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Calendar;
+
+import ar.edu.unq.po2.tpfinal.app.Celular;
+import ar.edu.unq.po2.tpfinal.compra.Compra;
+import ar.edu.unq.po2.tpfinal.compra.CompraPuntual;
+import ar.edu.unq.po2.tpfinal.compra.RecargaDeCelular;
+import ar.edu.unq.po2.tpfinal.sem.estacionamiento.EstacionamientoCompraPuntual;
 
 public class PuntoDeVenta {
 	private SEM sem;

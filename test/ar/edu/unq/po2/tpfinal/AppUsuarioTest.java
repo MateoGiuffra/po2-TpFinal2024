@@ -5,6 +5,12 @@ import java.time.LocalTime;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import ar.edu.unq.po2.tpfinal.app.AppUsuario;
+import ar.edu.unq.po2.tpfinal.app.Celular;
+import ar.edu.unq.po2.tpfinal.app.EstadoEstacionamiento;
+import ar.edu.unq.po2.tpfinal.app.EstrategiaModo;
+import ar.edu.unq.po2.tpfinal.sem.SEM;
+
 public class AppUsuarioTest {
     private String patente;
     private SEM sem;

@@ -1,6 +1,8 @@
-package ar.edu.unq.po2.tpfinal;
+package ar.edu.unq.po2.tpfinal.sem;
 
 import java.util.List;
+
+import ar.edu.unq.po2.tpfinal.inspector.Inspector;
 
 public class ZonaSEM {
 	

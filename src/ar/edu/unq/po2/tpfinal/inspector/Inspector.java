@@ -1,7 +1,10 @@
-package ar.edu.unq.po2.tpfinal;
+package ar.edu.unq.po2.tpfinal.inspector;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+
+import ar.edu.unq.po2.tpfinal.sem.SEM;
+import ar.edu.unq.po2.tpfinal.sem.ZonaSEM;
 
 public class Inspector {
 	private ZonaSEM zona;
