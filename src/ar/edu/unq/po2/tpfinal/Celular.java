@@ -8,6 +8,13 @@ public class Celular {
 	private AppUsuario app;
 	private Stack <String> alertas;
 	
+	public Celular(double credito, int numero, AppUsuario app) {
+		super();
+		this.credito = credito;
+		this.numero = numero;
+		this.app = app;
+	}
+	
 	public double getCredito() {
 		return this.credito;
 	}
