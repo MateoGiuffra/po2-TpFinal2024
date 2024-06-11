@@ -15,7 +15,11 @@ public class PuntoDeVenta {
 	private SEM sem;
 	
 	
-	
+	public PuntoDeVenta(SEM sem) {
+		super();
+		this.sem = sem;
+	}
+
 	public void iniciarEstacionamiento(String patente, int cantidadHoras) {
 		Compra compra =  new CompraPuntual(LocalDate.now(), LocalTime.now(), cantidadHoras);
 		LocalTime horaFin = this.getHoraFin(cantidadHoras); 

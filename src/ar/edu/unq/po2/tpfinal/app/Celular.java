@@ -24,12 +24,16 @@ public class Celular {
 	}
 
 	public void debitarCredito(double costoEstacionamiento) {
-		this.credito =- costoEstacionamiento;
+		this.credito -= costoEstacionamiento;
 	}
 
 	public void cargarCredito(double monto) {
 		   this.credito += monto;
 		
+	}
+
+	public Integer getNumero() {
+		return this.numero;
 	}
 
 }

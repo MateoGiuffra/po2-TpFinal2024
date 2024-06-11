@@ -9,6 +9,7 @@ import ar.edu.unq.po2.tpfinal.app.AppUsuario;
 import ar.edu.unq.po2.tpfinal.app.Celular;
 import ar.edu.unq.po2.tpfinal.app.EstadoEstacionamiento;
 import ar.edu.unq.po2.tpfinal.app.EstrategiaModo;
+import ar.edu.unq.po2.tpfinal.app.estadoDesplazamiento.EstadoAPie;
 import ar.edu.unq.po2.tpfinal.sem.SEM;
 
 public class AppUsuarioTest {
@@ -25,7 +26,8 @@ public class AppUsuarioTest {
         patente = "ABC123";
         estado = spy(EstadoEstacionamiento.NoEstaEstacionado); 
         sem = mock(SEM.class);
-        cel = mock(Celular.class); 
+        cel = mock(Celular.class);
+        modo = EstrategiaModo.Manual; 
         app = new AppUsuario(patente, sem, cel, estado, modo);
         app.setHoraActual(horaActual);
 
@@ -44,4 +46,74 @@ public class AppUsuarioTest {
         verify(estado).iniciarEstacionamiento(app, sem, cel, patente, app.getHoraActual());
         verify(cel).alerta(estado.iniciarEstacionamiento(app, sem, cel, patente, app.getHoraActual()));
     }
+    
+    @Test 
+    public void testFinEstacionamiento() {
+    	app.finEstacionamiento();
+        verify(estado).finalizarEstacionamiento(sem, cel, app);
+        verify(cel).alerta(estado.finalizarEstacionamiento(sem, cel, app));
+    }
+    
+    @Test
+    public void testSetyGetEstadoEstacionamiento() {
+    		app.setEstadoEstacionamiento(EstadoEstacionamiento.EstaEstacionado);
+    		assertEquals(EstadoEstacionamiento.EstaEstacionado, app.getEstado());
+    }
+    
+    @Test
+    public void testSetyGetHoraActual() {
+    	app.setHoraActual(LocalTime.of(6, 0));
+    	assertEquals(LocalTime.of(6, 0), app.getHoraActual());
+    }
+    
+    @Test
+    public void testSetyGetModo() {
+    	app.setModo(EstrategiaModo.Automatico);
+    	assertEquals(EstrategiaModo.Automatico, app.getModo());
+    }
+    
+    @Test
+    public void testAhoraEstasCaminandoNoEstaEstacionado() {
+    	app.ahoraEstasCaminando();
+    	verify(estado).ahoraEstasCaminando(app, cel);
+    	verify(cel).alerta(modo.alertaInicioEstacionamiento(app));
+    }
+    
+    @Test
+    public void testAhoraEstasManejandoNoEstaEstacionado() {
+    	app.ahoraEstasManejando();
+    	verify(estado).ahoraEstasManejando(app, cel);
+    }
+    
+    @Test
+    public void testAhoraEstasCaminandoEstaEstacionado() {
+    	app.setEstadoEstacionamiento(EstadoEstacionamiento.EstaEstacionado);
+    	app.ahoraEstasCaminando();
+    	verifyNoInteractions(estado);
+    }
+    
+    @Test
+    public void testAhoraEstasManejandoEstaEstacionado() {
+    	app.setEstadoEstacionamiento(EstadoEstacionamiento.EstaEstacionado);
+    	app.ahoraEstasManejando();
+    	verifyNoInteractions(estado);
+    	verify(cel).alerta(modo.alertaFinEstacionamiento(app));
+    }
+    
+    @Test
+    public void testAhoraEstasCaminandoNoEstaEnZona() {
+    	app.setEstadoEstacionamiento(EstadoEstacionamiento.NoEstaEnZona);
+    	app.ahoraEstasCaminando();
+    	verifyNoInteractions(estado);
+    }
+    
+    @Test
+    public void testAhoraEstasManejandoNoEstaEnZona() {
+    	app.setEstadoEstacionamiento(EstadoEstacionamiento.EstaEstacionado);
+    	app.ahoraEstasManejando();
+    	verifyNoInteractions(estado);
+    }
+    
+    
+    
 }

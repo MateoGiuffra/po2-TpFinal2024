@@ -70,6 +70,10 @@ public class AppUsuario {
 	public LocalTime getHoraActual() {
 		return horaActual;
 	}
+
+	public EstadoEstacionamiento getEstado() {
+		return this.estadoEstacionamiento;
+	}
 	
 	
 }
