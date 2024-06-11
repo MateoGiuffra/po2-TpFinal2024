@@ -14,7 +14,5 @@ public class EstadoAPie extends EstadoDesplazamiento{
 	public void caminando(AppUsuario app) {
 		// no hace nada
 	}
-
-
-
+	
 }

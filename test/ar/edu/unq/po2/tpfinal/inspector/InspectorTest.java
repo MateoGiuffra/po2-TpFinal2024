@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tpfinal;
+package ar.edu.unq.po2.tpfinal.inspector;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;

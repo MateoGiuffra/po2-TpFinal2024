@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tpfinal;
+package ar.edu.unq.po2.tpfinal.sem;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
