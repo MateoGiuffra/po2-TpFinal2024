@@ -87,7 +87,7 @@ public enum EstadoEstacionamiento {
 	};
 	
 	public abstract String iniciarEstacionamiento(AppUsuario app, SEM sem, Celular celular, String patente, LocalTime horaActual);
-    protected abstract String finalizarEstacionamiento(SEM sem, Celular celular,AppUsuario usuario);
+    public abstract String finalizarEstacionamiento(SEM sem, Celular celular,AppUsuario usuario);
     public abstract void ahoraEstasCaminando(AppUsuario app, Celular celular);
     public abstract void ahoraEstasManejando(AppUsuario app, Celular celular);
 }

@@ -29,15 +29,14 @@ public class AppUsuario {
 	
 	public AppUsuario(String patente, SEM sem, Celular cel, EstadoEstacionamiento estadoEstacionamiento,
 			EstrategiaModo modo) {
-		super();
 		this.patente = patente;
 		this.sem = sem;
 		this.cel = cel;
 		this.estadoEstacionamiento = estadoEstacionamiento;
 		this.modo = modo;
-	}  
+	}    
 
-	protected void setEstadoEstacionamiento(EstadoEstacionamiento estado) {
+	public void setEstadoEstacionamiento(EstadoEstacionamiento estado) {
 		this.estadoEstacionamiento = estado; 
 	}
 	
@@ -45,10 +44,10 @@ public class AppUsuario {
 		return this.patente;
 	}
 	public void ahoraEstasCaminando() {
-		estadoEstacionamiento.ahoraEstasCaminando(this, this.cel);
+		this.estadoEstacionamiento.ahoraEstasCaminando(this, this.cel);
 	}
 	public void ahoraEstasManejando() {
-		estadoEstacionamiento.ahoraEstasManejando(this, this.cel);
+		this.estadoEstacionamiento.ahoraEstasManejando(this, this.cel);
 	}
 
 	public void setEstadoMovimiento(EstadoDesplazamiento estadoMovimiento) {
@@ -73,6 +72,11 @@ public class AppUsuario {
 
 	public EstadoEstacionamiento getEstado() {
 		return this.estadoEstacionamiento;
+	}
+	
+	public EstadoDesplazamiento getEstadoDesplazamiento() {
+		return this.desplazamiento; 
+
 	}
 	
 	
