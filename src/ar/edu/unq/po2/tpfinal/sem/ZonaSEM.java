@@ -20,10 +20,9 @@ public class ZonaSEM {
 		sem.addZona(this);
 	}
 
-
+ 
 
 	public boolean estaVigente(String patente) {
-		
 		return sem.estaVigente(patente);
 	}
 

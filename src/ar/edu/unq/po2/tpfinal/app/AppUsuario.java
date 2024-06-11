@@ -35,7 +35,7 @@ public class AppUsuario {
 		this.cel = cel;
 		this.estadoEstacionamiento = estadoEstacionamiento;
 		this.modo = modo;
-	} 
+	}  
 
 	protected void setEstadoEstacionamiento(EstadoEstacionamiento estado) {
 		this.estadoEstacionamiento = estado; 

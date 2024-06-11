@@ -21,6 +21,22 @@ public class SEM {
 	//private HashMap<Celular, String> celularesEstacionados;
 	private LocalTime horaActual;
 	
+	
+	
+	
+	public SEM(double precioXHora, List<Infraccion> infracciones, List<ZonaSEM> zonas, List<Compra> compras,
+			List<Estacionamiento> estacionamientos, List<Entidad> entidades, List<AppUsuario> usuarios,
+			LocalTime horaActual) {
+		this.precioXHora = precioXHora;
+		this.infracciones = infracciones;
+		this.zonas = zonas;
+		this.compras = compras;
+		this.estacionamientos = estacionamientos;
+		this.entidades = entidades;
+		this.usuarios = usuarios;
+		this.horaActual = horaActual;
+	}
+
 	public String inicioEstacionamiento(Celular cel, String patente, LocalTime horaActual) {
 			
 		String msg = "No se puede estacionar en este horario.";
@@ -103,7 +119,7 @@ public class SEM {
 	
 	public void addCompra(Compra compra) {
 		compras.add(compra);
-	}
+	} 
 	
 	public void addEstacionamiento(Estacionamiento estacionamiento) {
 		estacionamientos.add(estacionamiento);
@@ -119,6 +135,10 @@ public class SEM {
 	
 	public boolean tieneSaldoSuficiente(Celular cel) {
 		return cel.getCredito() >= precioXHora;
+	}
+	
+	public void setHoraActual(LocalTime hora) {
+		this.horaActual = hora; 
 	}
 
 	public boolean esHorarioValido(LocalTime horaActual) {

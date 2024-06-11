@@ -10,6 +10,11 @@ public class Inspector {
 	private ZonaSEM zona;
 	private SEM sem;
 	
+	public Inspector(ZonaSEM zona, SEM sem) {
+		this.zona = zona;  
+		this.sem = sem; 
+	}
+	
 	public boolean estaVigente(String patente) {
 		return zona.estaVigente(patente);
 	}
@@ -19,5 +24,5 @@ public class Inspector {
 			Infraccion infraccion = new Infraccion (patente, LocalDate.now(), LocalTime.now(), this, zona);
 			sem.addInfraccion(infraccion);
 		}
-	}
+	} 
 }
