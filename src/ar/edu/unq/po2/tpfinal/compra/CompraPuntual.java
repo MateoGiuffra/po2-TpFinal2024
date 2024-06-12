@@ -16,4 +16,8 @@ public class CompraPuntual extends Compra{
 		this.cantidadHoras = cantidadHoras;
 	}
 
+	public int getCantidadHoras() {
+		return cantidadHoras;
+	}
+
 }

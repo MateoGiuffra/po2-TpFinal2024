@@ -7,7 +7,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import ar.edu.unq.po2.tpfinal.app.Celular;
-import ar.edu.unq.po2.tpfinal.compra.Compra;
 
 public class PuntoDeVentaTest {
     private SEM sem;

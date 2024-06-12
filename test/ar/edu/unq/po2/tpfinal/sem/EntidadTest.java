@@ -12,8 +12,6 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import ar.edu.unq.po2.tpfinal.sem.Entidad;
-import ar.edu.unq.po2.tpfinal.sem.SEM;
 import ar.edu.unq.po2.tpfinal.sem.estacionamiento.Estacionamiento;
 
 public class EntidadTest {

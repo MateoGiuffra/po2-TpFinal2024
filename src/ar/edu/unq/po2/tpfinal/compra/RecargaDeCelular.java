@@ -16,6 +16,11 @@ public class RecargaDeCelular extends Compra{
 		// TODO Auto-generated constructor stub
 	}
 
-	
-	
+	public Celular getCelular() {
+		return celular;
+	}
+
+	public double getMonto() {
+		return monto;
+	}
 }

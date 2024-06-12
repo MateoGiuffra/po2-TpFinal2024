@@ -9,10 +9,6 @@ import java.time.LocalTime;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import ar.edu.unq.po2.tpfinal.app.AppUsuario;
-import ar.edu.unq.po2.tpfinal.app.Celular;
-import ar.edu.unq.po2.tpfinal.app.EstadoEstacionamiento;
-import ar.edu.unq.po2.tpfinal.app.EstrategiaModo;
 import ar.edu.unq.po2.tpfinal.app.estadoDesplazamiento.EstadoAPie;
 import ar.edu.unq.po2.tpfinal.app.estadoDesplazamiento.EstadoDesplazamiento;
 import ar.edu.unq.po2.tpfinal.app.estadoDesplazamiento.EstadoManejando;
