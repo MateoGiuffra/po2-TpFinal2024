@@ -48,7 +48,7 @@ class EstadoAPieYManejandoTest {
 		estadoDesplazamiento = new EstadoManejando();
 		estadoDesplazamiento.caminando(app);
 		verify(app).ahoraEstasCaminando();
-	}
+	} 
 	
 
 }
