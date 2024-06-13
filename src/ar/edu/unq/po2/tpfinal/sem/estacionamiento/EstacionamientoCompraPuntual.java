@@ -10,5 +10,10 @@ public class EstacionamientoCompraPuntual extends Estacionamiento{
 		this.cantidadHoras = cantidadHoras;
 	}
 
+	@Override
+	public void terminarEstacionamiento() {
+		
+	}
+
 
 }

@@ -16,7 +16,7 @@ public class Celular {
 	}
 	
 	public double getCredito() {
-		return this.credito;
+		return this.credito; 
 	}
 
 	public void alerta(String alerta) {

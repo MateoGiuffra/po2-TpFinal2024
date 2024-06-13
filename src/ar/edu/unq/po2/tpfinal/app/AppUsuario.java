@@ -41,8 +41,8 @@ public class AppUsuario {
 	}
 	
 	public String getPatente() {
-		return this.patente;
-	}
+		return this.patente; 
+	} 
 	public void ahoraEstasCaminando() {
 		this.estadoEstacionamiento.ahoraEstasCaminando(this, this.cel);
 	}

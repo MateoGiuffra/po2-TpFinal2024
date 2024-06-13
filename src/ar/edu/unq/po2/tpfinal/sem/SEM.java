@@ -18,11 +18,7 @@ public class SEM {
 	private List <Estacionamiento> estacionamientos;
 	private List <Entidad> entidades;
 	private List <AppUsuario> usuarios;
-	//private HashMap<Celular, String> celularesEstacionados;
 	private LocalTime horaActual;
-	
-	
-	
 	
 	public SEM(double precioXHora, List<Infraccion> infracciones, List<ZonaSEM> zonas, List<Compra> compras,
 			List<Estacionamiento> estacionamientos, List<Entidad> entidades, List<AppUsuario> usuarios,
@@ -45,7 +41,7 @@ public class SEM {
 			Estacionamiento estacionamientoNuevo = new EstacionamientoPorApp(patente,horaFin,horaActual,cel,precioXHora);
 			estacionamientos.add(estacionamientoNuevo);
 			msg = "Hora de Inicio del Estacionamiento:" + String.valueOf(horaActual) + "Hora maxima de Fin del Estacionamiento:" + String.valueOf(horaFin);
-		}
+		} 
 		return msg;
 	}
 	
@@ -55,13 +51,13 @@ public class SEM {
 		estacionamientos.remove(estacionamiento);
 		estacionamiento.setHoraFin(horaActual);
 		this.debitarCredito(cel,this.precioXHora,estacionamiento);
-		String msg = this.enviarMensaje(estacionamiento, cel);
+		String msg = this.enviarMensaje(estacionamiento);
 		this.notificarEntidadesFinDeEstacionamiento(estacionamiento);
 		return msg;
 		
 	}
 	
-	private LocalTime calcularHoraFinEstacionamiento(Celular cel) {
+	public LocalTime calcularHoraFinEstacionamiento(Celular cel) {
 		
 		int maximoDeHorasPagables = (int) Math.round (cel.getCredito() / this.precioXHora);
 		LocalTime horaFINAL;
@@ -76,9 +72,8 @@ public class SEM {
 		return horaFINAL;
 		
 	}
-			
 	
-	private String enviarMensaje(Estacionamiento estacionamiento, Celular cel) {
+	private String enviarMensaje(Estacionamiento estacionamiento) {
 		
 		return  "Hora de Inicio del Estacionamiento:" + String.valueOf(estacionamiento.getHoraInicio()) + ". " + 
 				"Hora Fin del Estacionamiento:" + String.valueOf(estacionamiento.getHoraFin()) +		  ". " + 
@@ -105,10 +100,6 @@ public class SEM {
 		}
 	}
 	
-	public void notificarFinalizacion(){
-		
-	}
-	
 	public void addZona(ZonaSEM zona) {
 		zonas.add(zona);
 	}
@@ -116,7 +107,7 @@ public class SEM {
 	public void addInfraccion(Infraccion infraccion) {
 		infracciones.add(infraccion);
 	}
-	
+	 
 	public void addCompra(Compra compra) {
 		compras.add(compra);
 	} 
@@ -140,6 +131,10 @@ public class SEM {
 	public void setHoraActual(LocalTime hora) {
 		this.horaActual = hora; 
 	}
+	
+	public LocalTime getHoraActual() {
+		return this.horaActual; 
+	}
 
 	public boolean esHorarioValido(LocalTime horaActual) {
 		return horaActual.isAfter(LocalTime.of(7,0)) && horaActual.isBefore(LocalTime.of(20, 0));
@@ -147,6 +142,9 @@ public class SEM {
 
 	public boolean estaVigente(String patente) {
 		return this.estacionamientos.stream().anyMatch(e -> e.getPatente().equals(patente));
+	}
+	public List<Estacionamiento> getEstacionamientos() {
+		return this.estacionamientos; 
 	}
 	
 }

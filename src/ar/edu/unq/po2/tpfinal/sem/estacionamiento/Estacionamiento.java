@@ -9,23 +9,19 @@ public abstract class Estacionamiento {
 	private LocalTime horaInicio;
 	
 	public Estacionamiento(String patente, LocalTime horaFin, LocalTime horaInicio) {
-		
 		this.patente = patente;
 		this.horaFin = horaFin;
 		this.horaInicio = horaInicio;
 	}
-	
+	 
 	public String getPatente() {
 		return this.patente;
 	}
 	
-	public boolean estaVigente() {
-		return horaFin.getHour() > horaInicio.getHour();
-	}
 	public int duracion() {
 		return horaFin.getHour() - horaInicio.getHour();
 	}
-
+ 
 	public void setHoraFin(LocalTime horaFin) {
 		// TODO Auto-generated method stub
 		this.horaFin = horaFin;
@@ -45,9 +41,6 @@ public abstract class Estacionamiento {
 		return this.duracion() * precioPorHora;
 	}
 
-	public void terminarEstacionamiento() {
-		
-	}
-
+	public abstract void terminarEstacionamiento();
 	
 }
