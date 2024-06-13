@@ -13,7 +13,7 @@ public class Celular {
 		this.credito = credito;
 		this.numero = numero;
 		this.app = app;
-	}
+	} 
 	
 	public double getCredito() {
 		return this.credito; 

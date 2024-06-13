@@ -11,7 +11,7 @@ public class EstadoManejando extends EstadoDesplazamiento{
 		// no hace nada
 		
 	}
-
+ 
 	@Override
 	public void caminando(AppUsuario app) {
 		app.setEstadoMovimiento(new EstadoAPie());

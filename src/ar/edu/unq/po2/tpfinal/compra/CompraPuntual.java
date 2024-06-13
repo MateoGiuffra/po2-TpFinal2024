@@ -9,7 +9,6 @@ public class CompraPuntual extends Compra{
 	public CompraPuntual(LocalDate fecha, LocalTime hora, int cantidadHoras) {
 		super(fecha, hora);
 		this.cantidadHoras = cantidadHoras;
-		// TODO Auto-generated constructor stub
 	}
 
 	public void setCantidadHoras(int cantidadHoras) {

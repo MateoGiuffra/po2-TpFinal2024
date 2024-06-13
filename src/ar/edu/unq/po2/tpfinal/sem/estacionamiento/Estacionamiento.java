@@ -6,7 +6,7 @@ public abstract class Estacionamiento {
 		
 	private String patente;
 	private LocalTime horaFin;
-	private LocalTime horaInicio;
+	private LocalTime horaInicio; 
 	
 	public Estacionamiento(String patente, LocalTime horaFin, LocalTime horaInicio) {
 		this.patente = patente;

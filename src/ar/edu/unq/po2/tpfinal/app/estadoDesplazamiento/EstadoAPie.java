@@ -8,7 +8,7 @@ public class EstadoAPie extends EstadoDesplazamiento{
 	public void manejando(AppUsuario app) {
 		app.setEstadoMovimiento(new EstadoManejando());
 		app.ahoraEstasManejando();
-	}
+	} 
 
 	@Override
 	public void caminando(AppUsuario app) {

@@ -7,7 +7,7 @@ public enum EstrategiaModo {
 		public String alertaFinEstacionamiento(AppUsuario app) {
 			return "No se ha finalizado el estacionamiento.";
 			
-		}
+		} 
 
 		@Override
 		public String alertaInicioEstacionamiento(AppUsuario app) {

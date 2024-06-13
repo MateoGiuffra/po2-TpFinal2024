@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tpfinal.estacionamiento;
+package ar.edu.unq.po2.tpfinal.sem.estacionamiento;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;

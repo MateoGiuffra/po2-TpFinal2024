@@ -13,10 +13,9 @@ public abstract class Compra {
 		this.fecha = fecha;
 		this.hora = hora;
 	}
-
+ 
 	public void sumarCompra() {
 		this.nroDeCompra++;
-		
 	}
 	
 	

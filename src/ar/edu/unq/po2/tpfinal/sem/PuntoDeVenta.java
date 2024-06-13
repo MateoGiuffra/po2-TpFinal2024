@@ -3,7 +3,6 @@ package ar.edu.unq.po2.tpfinal.sem;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Calendar;
 
 import ar.edu.unq.po2.tpfinal.app.Celular;
 import ar.edu.unq.po2.tpfinal.compra.Compra;
@@ -18,7 +17,7 @@ public class PuntoDeVenta {
 	public PuntoDeVenta(SEM sem) {
 		super();
 		this.sem = sem;
-	}
+	} 
 
 	public void iniciarEstacionamiento(String patente, int cantidadHoras) {
 		Compra compra =  new CompraPuntual(LocalDate.now(), LocalTime.now(), cantidadHoras);

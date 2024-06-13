@@ -18,13 +18,13 @@ public enum EstadoEstacionamiento {
 
 		@Override
 		public void ahoraEstasCaminando(AppUsuario app, Celular celular) {
-			// TODO Auto-generated method stub
+			// no hace nada porque no se puede estacionar fuera de zona
 			
 		}
 
 		@Override
 		public void ahoraEstasManejando(AppUsuario app, Celular celular) {
-			// TODO Auto-generated method stub
+			// no hace nada porque no se puede estacionar fuera de zona
 			
 		}
 	        
@@ -32,7 +32,7 @@ public enum EstadoEstacionamiento {
 		
 		@Override
 		public String iniciarEstacionamiento(AppUsuario appUsuario, SEM sem, Celular cel, String patente, LocalTime horaActual) {
-			return "Ya estas estacionado!!";
+			return "No se puede iniciar estacionanamiemto porque ya estas estacionado.";
 		}
 		
 		@Override
@@ -50,7 +50,7 @@ public enum EstadoEstacionamiento {
 		public void ahoraEstasManejando(AppUsuario app, Celular celular) {
 			celular.alerta(app.getModo().alertaFinEstacionamiento(app));
 		}
-
+ 
 		
 		
 	}, NoEstaEstacionado {

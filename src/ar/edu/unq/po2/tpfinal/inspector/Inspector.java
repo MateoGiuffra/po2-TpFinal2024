@@ -24,5 +24,5 @@ public class Inspector {
 			Infraccion infraccion = new Infraccion (patente, LocalDate.now(), LocalTime.now(), this, zona);
 			sem.addInfraccion(infraccion);
 		}
-	} 
+	}  
 }

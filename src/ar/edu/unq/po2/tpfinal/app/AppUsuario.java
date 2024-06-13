@@ -4,7 +4,7 @@ import java.time.LocalTime;
 import ar.edu.unq.po2.tpfinal.app.estadoDesplazamiento.EstadoDesplazamiento;
 import ar.edu.unq.po2.tpfinal.sem.SEM;
 
-public class AppUsuario {
+public class AppUsuario implements MovementSensor{
 	
 	private String patente;
 	private SEM sem;
@@ -17,7 +17,7 @@ public class AppUsuario {
 	public double consultarSaldo() {
 		return this.cel.getCredito();
 	}
-	
+	 
 	public void inicioEstacionamiento() {
 		this.cel.alerta(this.estadoEstacionamiento.iniciarEstacionamiento(this,this.sem,this.cel,this.patente,this.horaActual));
 	}
@@ -78,6 +78,15 @@ public class AppUsuario {
 		return this.desplazamiento; 
 
 	}
-	
+
+	@Override
+	public void driving() {
+		this.ahoraEstasManejando();	
+	}
+
+	@Override
+	public void walking() {
+		this.ahoraEstasCaminando();
+	}
 	
 }

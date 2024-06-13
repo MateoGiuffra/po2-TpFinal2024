@@ -19,7 +19,7 @@ public class Infraccion {
 		this.hora = hora;
 		this.inspector = inspector;
 		this.zona = zona;
-	}
+	} 
 
 }
  

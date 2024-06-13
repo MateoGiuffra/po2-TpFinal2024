@@ -13,14 +13,13 @@ public class RecargaDeCelular extends Compra{
 		super(fecha, hora);
 		this.celular = celular;
 		this.monto = monto;
-		// TODO Auto-generated constructor stub
 	}
 
 	public Celular getCelular() {
-		return celular;
+		return this.celular;
 	}
 
 	public double getMonto() {
-		return monto;
+		return this.monto;
 	}
 }
