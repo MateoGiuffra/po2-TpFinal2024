@@ -1,7 +1,9 @@
 package ar.edu.unq.po2.tpfinal.app;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,8 +14,8 @@ public class EstrategiaModoTest {
 	
 	@BeforeEach
 	public void setUp() {
-		automatico = EstrategiaModo.Automatico;
-		manual = EstrategiaModo.Manual;
+		automatico = new ModoAutomatico();
+		manual = new ModoManual();
 		app = mock (AppUsuario.class);
 	}
 	

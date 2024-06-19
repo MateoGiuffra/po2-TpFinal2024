@@ -1,7 +1,13 @@
 package ar.edu.unq.po2.tpfinal.app;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoInteractions;
+import static org.mockito.Mockito.when;
+
 import java.time.LocalTime;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,10 +25,10 @@ public class AppUsuarioTest {
     public void setUp() {
         LocalTime horaActual = LocalTime.of(9, 0);
         patente = "ABC123";
-        estado = spy(EstadoEstacionamiento.NoEstaEstacionado); 
+        estado = spy(new NoEstaEstacionado()); 
         sem = mock(SEM.class);
         cel = mock(Celular.class);
-        modo = EstrategiaModo.Manual; 
+        modo = new ModoManual(); 
         app = new AppUsuario(patente, sem, cel, estado, modo);
         app.setHoraActual(horaActual);
 
@@ -51,8 +57,10 @@ public class AppUsuarioTest {
     
     @Test
     public void testSetyGetEstadoEstacionamiento() {
-    		app.setEstadoEstacionamiento(EstadoEstacionamiento.EstaEstacionado);
-    		assertEquals(EstadoEstacionamiento.EstaEstacionado, app.getEstado());
+    		
+    		EstadoEstacionamiento estaEstacionado = new EstaEstacionado();
+    		app.setEstadoEstacionamiento(estaEstacionado);
+    		assertEquals(estaEstacionado, app.getEstado());
     }
     
     @Test
@@ -63,8 +71,9 @@ public class AppUsuarioTest {
     
     @Test
     public void testSetyGetModo() {
-    	app.setModo(EstrategiaModo.Automatico);
-    	assertEquals(EstrategiaModo.Automatico, app.getModo());
+    	EstrategiaModo modoAutomatico = new ModoAutomatico();
+    	app.setModo(modoAutomatico);
+    	assertEquals(modoAutomatico, app.getModo());
     }
     
     @Test
@@ -82,14 +91,14 @@ public class AppUsuarioTest {
     
     @Test
     public void testAhoraEstasCaminandoEstaEstacionado() {
-    	app.setEstadoEstacionamiento(EstadoEstacionamiento.EstaEstacionado);
+    	app.setEstadoEstacionamiento(new EstaEstacionado());
     	app.ahoraEstasCaminando();
     	verifyNoInteractions(estado);
     }
     
     @Test
     public void testAhoraEstasManejandoEstaEstacionado() {
-    	app.setEstadoEstacionamiento(EstadoEstacionamiento.EstaEstacionado);
+    	app.setEstadoEstacionamiento(new EstaEstacionado());
     	app.ahoraEstasManejando();
     	verifyNoInteractions(estado);
     	verify(cel).alerta(modo.alertaFinEstacionamiento(app));
@@ -97,14 +106,14 @@ public class AppUsuarioTest {
     
     @Test
     public void testAhoraEstasCaminandoNoEstaEnZona() {
-    	app.setEstadoEstacionamiento(EstadoEstacionamiento.NoEstaEnZona);
+    	app.setEstadoEstacionamiento(new NoEstaEnZona());
     	app.ahoraEstasCaminando();
     	verifyNoInteractions(estado);
     }
     
     @Test
     public void testAhoraEstasManejandoNoEstaEnZona() {
-    	app.setEstadoEstacionamiento(EstadoEstacionamiento.EstaEstacionado);
+    	app.setEstadoEstacionamiento(new EstaEstacionado());
     	app.ahoraEstasManejando();
     	verifyNoInteractions(estado);
     }

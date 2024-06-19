@@ -1,6 +1,5 @@
 package ar.edu.unq.po2.tpfinal.inspector;
 
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
@@ -8,8 +7,6 @@ import static org.mockito.Mockito.verify;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import ar.edu.unq.po2.tpfinal.inspector.Infraccion;
-import ar.edu.unq.po2.tpfinal.inspector.Inspector;
 import ar.edu.unq.po2.tpfinal.sem.SEM;
 import ar.edu.unq.po2.tpfinal.sem.ZonaSEM;
 
@@ -43,8 +40,9 @@ class InspectorTest {
 	
 	@Test
 	void testAltaDeInfraccion() {
+		ZonaSEM zona = mock(ZonaSEM.class);
 		inspector.altaDeInfraccion(patente2);
-		verify(sem).addInfraccion(any(Infraccion.class));
+		verify(sem).altaDeInfraccion(patente2,inspector,inspector.getZona());
 	}
 	
 }

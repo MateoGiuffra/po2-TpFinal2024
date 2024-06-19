@@ -1,4 +1,5 @@
 package ar.edu.unq.po2.tpfinal.sem;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -6,6 +7,7 @@ import ar.edu.unq.po2.tpfinal.app.AppUsuario;
 import ar.edu.unq.po2.tpfinal.app.Celular;
 import ar.edu.unq.po2.tpfinal.compra.Compra;
 import ar.edu.unq.po2.tpfinal.inspector.Infraccion;
+import ar.edu.unq.po2.tpfinal.inspector.Inspector;
 import ar.edu.unq.po2.tpfinal.sem.estacionamiento.Estacionamiento;
 import ar.edu.unq.po2.tpfinal.sem.estacionamiento.EstacionamientoPorApp;
 
@@ -150,6 +152,14 @@ public class SEM {
 	}
 	public List<Estacionamiento> getEstacionamientos() {
 		return this.estacionamientos; 
+	}
+
+	public void altaDeInfraccion(String patente, Inspector inspector, ZonaSEM zona) {
+		if (!this.estaVigente(patente)) {
+			Infraccion infraccion = new Infraccion (patente, LocalDate.now(), LocalTime.now(), inspector, zona);
+			this.addInfraccion(infraccion);
+		}
+		
 	}
 	
 }

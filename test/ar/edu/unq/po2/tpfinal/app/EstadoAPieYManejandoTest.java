@@ -29,13 +29,13 @@ class EstadoAPieYManejandoTest {
 	public void setUp() {
 	   LocalTime horaActual = LocalTime.of(9, 0);
 	   patente = "ABC123";
-	   estado = (EstadoEstacionamiento.NoEstaEstacionado); 
-	   modo = (EstrategiaModo.Automatico); 
+	   estado = (new NoEstaEstacionado()); 
+	   modo = new ModoAutomatico(); 
 	   sem = mock(SEM.class);
 	   cel = mock(Celular.class); 
 	   app = spy(new AppUsuario(patente, sem, cel, estado, modo));
 	}
-	 
+	  
 	@Test
 	void testDePieAManejar() {
 		estadoDesplazamiento = new EstadoAPie();
