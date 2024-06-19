@@ -21,6 +21,6 @@ public class Inspector {
 	}
 
 	public ZonaSEM getZona() {
-		return this.zona;
+		return this.zona; 
 	}  
 }
