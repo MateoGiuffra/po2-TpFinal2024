@@ -2,6 +2,8 @@ package ar.edu.unq.po2.tpfinal.app;
 import java.time.LocalTime;
 
 import ar.edu.unq.po2.tpfinal.app.estadoDesplazamiento.EstadoDesplazamiento;
+import ar.edu.unq.po2.tpfinal.app.estadoEstacionamiento.EstadoEstacionamiento;
+import ar.edu.unq.po2.tpfinal.app.modos.EstrategiaModo;
 import ar.edu.unq.po2.tpfinal.sem.SEM;
 
 public class AppUsuario implements MovementSensor{
@@ -16,8 +18,8 @@ public class AppUsuario implements MovementSensor{
 	
 	public double consultarSaldo() {
 		return this.cel.getCredito();
-	}
-	 
+	} 
+	  
 	public void inicioEstacionamiento() {
 		this.cel.alerta(this.estadoEstacionamiento.iniciarEstacionamiento(this,this.sem,this.cel,this.patente,this.horaActual));
 	}
@@ -42,7 +44,7 @@ public class AppUsuario implements MovementSensor{
 	
 	public String getPatente() {
 		return this.patente; 
-	} 
+	}  
 	public void ahoraEstasCaminando() {
 		this.estadoEstacionamiento.ahoraEstasCaminando(this, this.cel);
 	}

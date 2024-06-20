@@ -1,7 +1,9 @@
-package ar.edu.unq.po2.tpfinal.app;
+package ar.edu.unq.po2.tpfinal.app.estadoEstacionamiento;
 
 import java.time.LocalTime;
 
+import ar.edu.unq.po2.tpfinal.app.AppUsuario;
+import ar.edu.unq.po2.tpfinal.app.Celular;
 import ar.edu.unq.po2.tpfinal.sem.SEM;
 
 public class EstaEstacionado extends EstadoEstacionamiento{
@@ -14,12 +16,7 @@ public class EstaEstacionado extends EstadoEstacionamiento{
 	public String finalizarEstacionamiento(SEM sem, Celular cel, AppUsuario usuario) {
 		return sem.finEstacionamiento(cel,usuario);
 	}
-
-	@Override
-	public void ahoraEstasCaminando(AppUsuario app, Celular celular) {
-		// no hace nada
-		
-	}
+  
 
 	@Override
 	public void ahoraEstasManejando(AppUsuario app, Celular celular) {

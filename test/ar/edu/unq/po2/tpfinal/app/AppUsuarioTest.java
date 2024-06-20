@@ -11,6 +11,13 @@ import java.time.LocalTime;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import ar.edu.unq.po2.tpfinal.app.estadoEstacionamiento.EstaEstacionado;
+import ar.edu.unq.po2.tpfinal.app.estadoEstacionamiento.EstadoEstacionamiento;
+import ar.edu.unq.po2.tpfinal.app.estadoEstacionamiento.NoEstaEnZona;
+import ar.edu.unq.po2.tpfinal.app.estadoEstacionamiento.NoEstaEstacionado;
+import ar.edu.unq.po2.tpfinal.app.modos.EstrategiaModo;
+import ar.edu.unq.po2.tpfinal.app.modos.ModoAutomatico;
+import ar.edu.unq.po2.tpfinal.app.modos.ModoManual;
 import ar.edu.unq.po2.tpfinal.sem.SEM;
 
 public class AppUsuarioTest {
@@ -31,7 +38,7 @@ public class AppUsuarioTest {
         modo = new ModoManual(); 
         app = new AppUsuario(patente, sem, cel, estado, modo);
         app.setHoraActual(horaActual);
-
+ 
         when(sem.tieneSaldoSuficiente(cel)).thenReturn(true);
         when(cel.getCredito()).thenReturn((double) 200); 
     }

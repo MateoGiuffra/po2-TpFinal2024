@@ -10,7 +10,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import ar.edu.unq.po2.tpfinal.app.Celular;
-import ar.edu.unq.po2.tpfinal.sem.estacionamiento.EstacionamientoPorApp;
 
 public class EstacionamientoPorAppTest {
 	private Celular celular;
@@ -30,7 +29,7 @@ public class EstacionamientoPorAppTest {
 		estacionamiento = new EstacionamientoPorApp(patente, horaFin, horaInicio, celular, precioxHora);
 	}
 	
-	@Test
+	@Test 
 	public void testTerminarEstacionamiento() {
 		estacionamiento.terminarEstacionamiento();
 		assertEquals(LocalTime.of(20, 0), estacionamiento.getHoraFin());

@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tpfinal.app;
+package ar.edu.unq.po2.tpfinal.app.estadoDesplazamiento;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
@@ -9,9 +9,15 @@ import java.time.LocalTime;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import ar.edu.unq.po2.tpfinal.app.AppUsuario;
+import ar.edu.unq.po2.tpfinal.app.Celular;
 import ar.edu.unq.po2.tpfinal.app.estadoDesplazamiento.EstadoAPie;
 import ar.edu.unq.po2.tpfinal.app.estadoDesplazamiento.EstadoDesplazamiento;
 import ar.edu.unq.po2.tpfinal.app.estadoDesplazamiento.EstadoManejando;
+import ar.edu.unq.po2.tpfinal.app.estadoEstacionamiento.EstadoEstacionamiento;
+import ar.edu.unq.po2.tpfinal.app.estadoEstacionamiento.NoEstaEstacionado;
+import ar.edu.unq.po2.tpfinal.app.modos.EstrategiaModo;
+import ar.edu.unq.po2.tpfinal.app.modos.ModoAutomatico;
 import ar.edu.unq.po2.tpfinal.sem.SEM;
 
 class EstadoAPieYManejandoTest {
@@ -42,7 +48,7 @@ class EstadoAPieYManejandoTest {
 		estadoDesplazamiento.manejando(app);
 		verify(app).ahoraEstasManejando();
 	}
-	
+	 
 	@Test
 	void testDeManejarAPie() {
 		estadoDesplazamiento = new EstadoManejando();

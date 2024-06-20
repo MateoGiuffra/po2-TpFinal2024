@@ -1,4 +1,6 @@
-package ar.edu.unq.po2.tpfinal.app;
+package ar.edu.unq.po2.tpfinal.app.modos;
+
+import ar.edu.unq.po2.tpfinal.app.AppUsuario;
 
 public interface EstrategiaModo {
 	
@@ -9,3 +11,4 @@ public interface EstrategiaModo {
 	
 }	
 
+ 

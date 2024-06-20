@@ -1,4 +1,6 @@
-package ar.edu.unq.po2.tpfinal.app;
+package ar.edu.unq.po2.tpfinal.app.modos;
+
+import ar.edu.unq.po2.tpfinal.app.AppUsuario;
 
 public class ModoManual implements EstrategiaModo{
 
@@ -12,4 +14,4 @@ public class ModoManual implements EstrategiaModo{
 	public String alertaInicioEstacionamiento(AppUsuario app) {
 		return "No se ha inicado el estacionamiento.";
 	}
-}
+} 

@@ -1,7 +1,9 @@
-package ar.edu.unq.po2.tpfinal.app;
+package ar.edu.unq.po2.tpfinal.app.estadoEstacionamiento;
 
 import java.time.LocalTime;
 
+import ar.edu.unq.po2.tpfinal.app.AppUsuario;
+import ar.edu.unq.po2.tpfinal.app.Celular;
 import ar.edu.unq.po2.tpfinal.sem.SEM;
 
 public class NoEstaEnZona extends EstadoEstacionamiento {
@@ -15,13 +17,4 @@ public class NoEstaEnZona extends EstadoEstacionamiento {
         return "No hay un estacionamiento iniciado.";
     }
 
-    @Override
-    public void ahoraEstasCaminando(AppUsuario app, Celular celular) {
-        // No hace nada porque no se puede estacionar fuera de zona
-    }
-
-    @Override
-    public void ahoraEstasManejando(AppUsuario app, Celular celular) {
-        // No hace nada porque no se puede estacionar fuera de zona
-    }
 }

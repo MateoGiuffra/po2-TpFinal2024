@@ -9,16 +9,16 @@ public class Celular {
 	private Stack <String> alertas;
 	
 	public Celular(double credito, int numero, AppUsuario app) {
-		super();
 		this.credito = credito;
 		this.numero = numero;
 		this.app = app;
-	} 
+		this.alertas = new Stack<>();
+	}  
 	
 	public double getCredito() {
 		return this.credito; 
 	}
-
+ 
 	public void alerta(String alerta) {
 		alertas.push(alerta);
 	}

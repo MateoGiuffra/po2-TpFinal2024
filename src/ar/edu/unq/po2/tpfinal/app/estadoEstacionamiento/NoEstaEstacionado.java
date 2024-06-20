@@ -1,7 +1,9 @@
-package ar.edu.unq.po2.tpfinal.app;
+package ar.edu.unq.po2.tpfinal.app.estadoEstacionamiento;
 
 import java.time.LocalTime;
 
+import ar.edu.unq.po2.tpfinal.app.AppUsuario;
+import ar.edu.unq.po2.tpfinal.app.Celular;
 import ar.edu.unq.po2.tpfinal.sem.SEM;
 
 public class NoEstaEstacionado extends EstadoEstacionamiento {
@@ -14,7 +16,7 @@ public class NoEstaEstacionado extends EstadoEstacionamiento {
 		} else {
 			alerta = "Saldo insuficiente. Estacionamiento no permitido.";
 		}
-		return alerta;
+		return alerta; 
 	}
 
 	@Override
@@ -26,7 +28,7 @@ public class NoEstaEstacionado extends EstadoEstacionamiento {
 	public void ahoraEstasCaminando(AppUsuario app, Celular celular) {
 		celular.alerta(app.getModo().alertaInicioEstacionamiento(app));
 		
-	}
+	} 
 
 	@Override
 	public void ahoraEstasManejando(AppUsuario app, Celular celular) {
