@@ -9,12 +9,10 @@ import ar.edu.unq.po2.tpfinal.sem.SEM;
 public class NoEstaEstacionado extends EstadoEstacionamiento {
 	@Override
 	public String iniciarEstacionamiento(AppUsuario appUsuario, SEM sem, Celular cel, String patente, LocalTime horaActual) {
-		String alerta = "";
+		String alerta = "Saldo insuficiente. Estacionamiento no permitido.";
 		if (sem.tieneSaldoSuficiente(cel)) {
 			appUsuario.setEstadoEstacionamiento(new EstaEstacionado());
 			alerta = sem.inicioEstacionamiento(cel, patente, horaActual);
-		} else {
-			alerta = "Saldo insuficiente. Estacionamiento no permitido.";
 		}
 		return alerta; 
 	}
@@ -30,9 +28,4 @@ public class NoEstaEstacionado extends EstadoEstacionamiento {
 		
 	} 
 
-	@Override
-	public void ahoraEstasManejando(AppUsuario app, Celular celular) {
-		// no hace nada
-		
-	}
 }
