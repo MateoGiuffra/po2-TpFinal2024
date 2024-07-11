@@ -116,7 +116,8 @@ public class SEM {
 	 
 	public void addCompra(Compra compra) {
 		compras.add(compra);
-	} 
+		this.entidades.forEach(entidad -> entidad.notificarCompraNueva(compra));
+	}  
 	
 	public void addEstacionamiento(Estacionamiento estacionamiento) {
 		estacionamientos.add(estacionamiento);

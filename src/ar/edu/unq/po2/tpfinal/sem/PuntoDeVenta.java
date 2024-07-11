@@ -15,7 +15,6 @@ public class PuntoDeVenta {
 	
 	
 	public PuntoDeVenta(SEM sem) {
-		super();
 		this.sem = sem;
 	} 
 
@@ -28,7 +27,7 @@ public class PuntoDeVenta {
 		sem.addEstacionamiento(estacionamientocp);
 		sem.addCompra(compra);
 	}  
-	
+	 
 	private LocalTime getHoraFin(int cantidadHoras) {
 		LocalTime horaFin = LocalTime.now().plus(Duration.ofHours(cantidadHoras));
 		LocalTime maxHoraFin = LocalTime.of(20, 0);	
