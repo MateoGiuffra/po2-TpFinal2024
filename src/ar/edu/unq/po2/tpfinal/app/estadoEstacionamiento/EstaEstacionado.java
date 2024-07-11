@@ -18,7 +18,7 @@ public class EstaEstacionado extends EstadoEstacionamiento{
 	}
   
 
-	@Override
+	@Override 
 	public void ahoraEstasManejando(AppUsuario app, Celular celular) {
 		celular.alerta(app.getModo().alertaFinEstacionamiento(app));
 	}

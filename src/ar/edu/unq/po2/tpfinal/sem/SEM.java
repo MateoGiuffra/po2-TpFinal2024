@@ -94,7 +94,6 @@ public class SEM {
 
 	private void debitarCredito(Celular cel, double precioXHora2, Estacionamiento estacionamiento) {
 		cel.debitarCredito(estacionamiento.getCostoEstacionamiento(precioXHora2));
-		
 	}
 
 	public void finalizarTodosLosEstacionamientos(){
@@ -104,7 +103,7 @@ public class SEM {
 				this.notificarEntidadesFinDeEstacionamiento(e);
 			}
 			estacionamientos.removeAll(estacionamientos);
-		}
+		} 
 	} 
 	
 	public void addZona(ZonaSEM zona) {

@@ -18,7 +18,7 @@ public class Celular {
 	public double getCredito() {
 		return this.credito; 
 	}
- 
+  
 	public void alerta(String alerta) {
 		alertas.push(alerta);
 	}
@@ -29,7 +29,6 @@ public class Celular {
 
 	public void cargarCredito(double monto) {
 		   this.credito += monto;
-		
 	}
 
 	public Integer getNumero() {
