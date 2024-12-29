@@ -1,20 +1,19 @@
-### 📊 PO2 - TP Final 2024
+### PO2 - TP Final 2024
 
-**Description**:
-This project is the final practical work for the Object-Oriented Programming 2 course. It is developed in Java and showcases various object-oriented programming concepts and design patterns.
+**Descripción**:  
+Este proyecto es el trabajo práctico final para la materia Programación Orientada a Objetos 2. Está desarrollado en Java y demuestra diversos conceptos de programación orientada a objetos y patrones de diseño.  
 
-**Key Features**:
-- **Comprehensive Implementation**: Demonstrates proficiency in Java through the development of complex classes and methods.
-- **Unit Testing**: Includes extensive tests to ensure the reliability and accuracy of the code.
-- **Detailed Documentation**: Provides thorough documentation, including a final report and diagrams, to explain the project's structure and functionality.
+**Características principales**:  
+- **Implementación integral**: Demuestra dominio de Java mediante el desarrollo de clases y métodos complejos.  
+- **Pruebas unitarias**: Incluye pruebas exhaustivas para garantizar la fiabilidad y precisión del código.  
+- **Documentación detallada**: Proporciona una documentación completa, que incluye un informe final y diagramas para explicar la estructura y funcionalidad del proyecto.  
 
-**Technologies Used**:
-- Java
+**Tecnologías utilizadas**:  
+- Java  
 
-**Objectives**:
-- **Object-Oriented Design**: Apply principles of encapsulation, inheritance, and polymorphism to build robust software.
-- **Design Patterns**: Utilize common design patterns to solve recurring problems in software design.
-- **Testing and Validation**: Ensure code quality and correctness through unit testing.
+**Objetivos**:  
+- **Diseño orientado a objetos**: Aplicar principios como encapsulamiento, herencia y polimorfismo para construir software robusto.  
+- **Patrones de diseño**: Utilizar patrones de diseño comunes para resolver problemas recurrentes en el desarrollo de software.  
+- **Pruebas y validación**: Garantizar la calidad y corrección del código a través de pruebas unitarias.  
 
-This project highlights skills in advanced Java programming and object-oriented design.
-
+Este proyecto destaca habilidades en programación avanzada con Java y diseño orientado a objetos.
